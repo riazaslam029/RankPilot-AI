@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RankPilot AI — Search Intelligence Platform</title>
+<style>
+:root { --bg: #f8f9fa; --card: #ffffff; --text: #212529; --accent: #2563eb; --border: #dee2e6; --critical: #dc3545; --high: #fd7e14; --medium: #ffc107; --low: #28a745; --monitor: #6c757d; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; max-width: 1100px; margin: 0 auto; padding: 2rem; background: var(--bg); color: var(--text); }
+h1 { border-bottom: 3px solid var(--accent); padding-bottom: 0.5rem; }
+.card { border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin: 1rem 0; background: var(--card); }
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0; }
+.stat-card { text-align: center; padding: 1.5rem; border-radius: 8px; background: var(--card); border: 1px solid var(--border); }
+.stat-number { font-size: 2rem; font-weight: bold; color: var(--accent); }
+.badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.85em; font-weight: bold; color: white; }
+.badge-critical { background: var(--critical); }
+.badge-high { background: var(--high); }
+.badge-medium { background: var(--medium); color: #333; }
+.badge-low { background: var(--low); }
+.badge-monitor { background: var(--monitor); }
+nav { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin-bottom: 2rem; }
+nav a { margin-right: 1rem; color: var(--accent); text-decoration: none; }
+nav a:hover { text-decoration: underline; }
+.hero { text-align: center; padding: 3rem 1rem; }
+.hero h1 { font-size: 3rem; border: none; }
+.hero p { font-size: 1.2rem; color: #666; max-width: 600px; margin: 0 auto; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+th, td { border: 1px solid var(--border); padding: 8px 12px; text-align: left; }
+th { background: #f0f0f0; }
+@media (max-width: 768px) { .stat-grid { grid-template-columns: 1fr 1fr; } .hero h1 { font-size: 2rem; } }
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>🚀 RankPilot AI</h1>
+<p>AI-powered Search Intelligence platform. Classifies pages into action categories with explainable AI — protect, improve, refresh, rewrite, merge, prune, or monitor.</p>
+<p><a href="architecture/index.html">Architecture</a> · <a href="methodology/index.html">Methodology</a> · <a href="results/index.html">Results</a> · <a href="downloads/index.html">Downloads</a> · <a href="https://github.com/username/rankpilot-ai">GitHub</a></p>
+</div>
+
+<div class="stat-grid">
+<div class="stat-card"><div class="stat-number">12,847</div><div>Pages Analyzed</div></div>
+<div class="stat-card"><div class="stat-number">3,291</div><div>Actionable Pages</div></div>
+<div class="stat-card"><div class="stat-number">0.87</div><div>F1 Macro Score</div></div>
+<div class="stat-card"><div class="stat-number">0.91</div><div>XAI Alignment</div></div>
+</div>
+
+<div class="card">
+<h2>Key Features</h2>
+<ul>
+<li><strong>52+ Features</strong> — Engagement, temporal, content, competitive, behavioral, interaction features</li>
+<li><strong>Multi-label Classification</strong> — 7 action dimensions scored independently</li>
+<li><strong>SHAP Explainability</strong> — Every prediction comes with human-readable reason codes</li>
+<li><strong>Priority Scoring</strong> — Combines confidence, business impact, urgency, and action ease</li>
+<li><strong>Time-based Validation</strong> — Prevents data leakage in temporal search data</li>
+<li><strong>Docker Deployment</strong> — One-command deployment with CI/CD</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Action Distribution</h2>
+<table>
+<tr><th>Action</th><th>Description</th><th>Use Case</th></tr>
+<tr><td><span class="badge badge-critical">Protect</span></td><td>Defend high-performing pages</td><td>High CTR, stable position, strong metrics</td></tr>
+<tr><td><span class="badge badge-high">Improve</span></td><td>Optimize content/SEO for better performance</td><td>Good position, low CTR or declining metrics</td></tr>
+<tr><td><span class="badge badge-medium">Refresh</span></td><td>Update aging content</td><td>Stale content with moderate performance</td></tr>
+<tr><td><span class="badge badge-high">Rewrite</span></td><td>Fundamental content restructuring</td><td>Poor metrics across the board</td></tr>
+<tr><td><span class="badge badge-low">Merge</span></td><td>Consolidate cannibalizing pages</td><td>Multiple pages targeting same queries</td></tr>
+<tr><td><span class="badge badge-low">Prune</span></td><td>Remove or noindex low-value pages</td><td>Minimal traffic, low engagement potential</td></tr>
+<tr><td><span class="badge badge-monitor">Monitor</span></td><td>Track but take no action yet</td><td>Stable, no immediate concerns</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>Technology Stack</h2>
+<p><strong>ML:</strong> XGBoost, SHAP, scikit-learn | <strong>Data:</strong> DuckDB, Parquet | <strong>API:</strong> FastAPI | <strong>UI:</strong> Streamlit + Plotly | <strong>Deployment:</strong> Docker, GitHub Actions, GitHub Pages</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+[project]
+name = "rankpilot-ai"
+version = "0.1.0"
+description = "AI-powered Search Intelligence platform for SEO action recommendations"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.4",
+    "black>=24.0",
+    "mypy>=1.0",
+    "pre-commit>=3.0",
+    "jupyter>=1.0",
+]
+ml = [
+    "xgboost>=2.0",
+    "scikit-learn>=1.4",
+    "lightgbm>=4.0",
+    "shap>=0.44",
+    "mlflow>=2.12",
+]
+data = [
+    "duckdb>=0.10",
+    "pandas>=2.0",
+    "pyarrow>=14.0",
+    "great-expectations>=0.18",
+]
+ui = [
+    "streamlit>=1.30",
+    "plotly>=5.0",
+]
+api = [
+    "fastapi>=0.100",
+    "uvicorn>=0.23",
+    "pydantic>=2.0",
+]
+all = [
+    "xgboost>=2.0",
+    "scikit-learn>=1.4",
+    "lightgbm>=4.0",
+    "shap>=0.44",
+    "mlflow>=2.12",
+    "duckdb>=0.10",
+    "pandas>=2.0",
+    "pyarrow>=14.0",
+    "great-expectations>=0.18",
+    "streamlit>=1.30",
+    "plotly>=5.0",
+    "fastapi>=0.100",
+    "uvicorn>=0.23",
+    "pydantic>=2.0",
+]
+
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[tool.setuptools.packages.find]
+include = ["src*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "RUF"]
+ignore = ["E501"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --cov=src --cov-report=term-missing"
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]

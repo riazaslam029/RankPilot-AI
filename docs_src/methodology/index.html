@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Methodology — RankPilot AI</title>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6;max-width:1100px;margin:0 auto;padding:2rem;background:#f8f9fa;color:#212529}h1{border-bottom:3px solid #2563eb;padding-bottom:0.5rem}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #dee2e6;padding:8px 12px;text-align:left}th{background:#f0f0f0}code{background:#f4f4f4;padding:2px 6px;border-radius:3px}.card{border:1px solid #dee2e6;border-radius:8px;padding:1.5rem;margin:1rem 0;background:#fff}code{background:#f4f4f4;padding:2px 6px;border-radius:3px;font-size:0.9em}.dark code{background:#2a2a4e;color:#e0e0e0}</style></head><body>
+<h1>Methodology</h1>
+<h2>ML Problem Formulation</h2>
+<p>RankPilot AI solves a <strong>multi-output supervised learning</strong> problem with two stages:</p>
+<ol><li><strong>Stage 1 — Multi-label Classification:</strong> Predict which of 7 actions apply to each page.</li><li><strong>Stage 2 — Scoring:</strong> For each applicable action, predict a score (0–100) representing urgency.</li></ol>
+<h2>Feature Engineering (69 features)</h2>
+<table><tr><th>Category</th><th>Count</th><th>Key Features</th></tr>
+<tr><td>Engagement Metrics</td><td>12</td><td>CTR, position, impressions, clicks, CTR×Impressions</td></tr>
+<tr><td>Temporal Dynamics</td><td>10</td><td>CTR trend, position trend, growth rates, volatility</td></tr>
+<tr><td>Content Attributes</td><td>8</td><td>Freshness, title/meta length, headings, link counts</td></tr>
+<tr><td>Competitive Positioning</td><td>6</td><td>Rank quartile, cannibalization, SERP features</td></tr>
+<tr><td>Behavioral Signals</td><td>8</td><td>Dwell time proxy, pogo-stick proxy, click velocity</td></tr>
+<tr><td>Interaction & Lag</td><td>8</td><td>Cross-feature products, multi-period lags</td></tr></table>
+<h2>Model Training</h2>
+<p><strong>Algorithm:</strong> XGBoost gradient boosted trees with binary logistic objective per action class.<br>
+<strong>Validation:</strong> Time-based train/val/test split with 5-fold TimeSeriesCrossValidation expanding window.<br>
+<strong>Label Generation:</strong> Weak supervision via SEO domain rules (Snorkel-style).</p>
+<h2>Explainability</h2>
+<p>SHAP (SHapley Additive exPlanations) provides per-prediction feature attribution. <strong>Tiered explanations:</strong> SHAP values for data scientists, surrogate decision trees for executives, and reason codes for practitioners.</p>
+</body></html>

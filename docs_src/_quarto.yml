@@ -1,0 +1,37 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "RankPilot AI"
+  description: "AI-powered Search Intelligence Platform"
+  navbar:
+    left:
+      - href: index.md
+        text: Home
+      - href: architecture/index.md
+        text: Architecture
+      - href: methodology/index.md
+        text: Methodology
+      - href: results/index.md
+        text: Results
+      - href: downloads/index.md
+        text: Downloads
+    right:
+      - href: https://github.com/username/rankpilot-ai
+        text: GitHub
+      - href: paper/paper.pdf
+        text: Paper (PDF)
+
+  page-footer:
+    center: "© 2026 RankPilot AI — FlyRank ML Internship Capstone"
+    right: "Built with Quarto and Streamlit"
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    code-link: true
+    number-sections: true
+    css: assets/css/custom.css
