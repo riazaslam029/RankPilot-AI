@@ -81,3 +81,4 @@ See the [`paper/`](paper/) directory for the full research paper structure. The 
 ## License
 
 MIT
+[![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Live-green)](https://riazaslam029.github.io/RankPilot-AI/)
