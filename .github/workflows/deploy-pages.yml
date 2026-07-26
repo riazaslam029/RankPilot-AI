@@ -10,20 +10,17 @@ permissions:
   id-token: write
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-
-      - name: Build site
-        run: quarto render
+      - name: Copy static files to site
+        run: |
+          mkdir -p _site
+          cp -r docs_src/* _site/
+          cp -r assets/* _site/assets/ 2>/dev/null || true
+          cp paper/paper.md _site/paper.md
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -34,7 +31,7 @@ jobs:
           path: ./_site
 
   deploy:
-    needs: build
+    needs: deploy
     runs-on: ubuntu-latest
     environment:
       name: github-pages
