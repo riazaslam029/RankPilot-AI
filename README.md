@@ -2,9 +2,13 @@
 
 An AI-powered Search Intelligence platform that analyzes search performance data and predicts which pages should be protected, improved, refreshed, rewritten, merged, pruned, or monitored — with explainable recommendations and reason codes.
 
-[![CI Status](https://github.com/username/rankpilot-ai/actions/workflows/CI.yml/badge.svg)](https://github.com/username/rankpilot-ai)
-[![Model Version](https://img.shields.io/badge/model-v1.0.0-blue)](https://github.com/username/rankpilot-ai)
+[![CI Status](https://github.com/riazaslam029/RankPilot-AI/actions/workflows/CI.yml/badge.svg)](https://github.com/riazaslam029/RankPilot-AI/actions)
+[![Model Version](https://img.shields.io/badge/model-v1.0.0-blue)](https://github.com/riazaslam029/RankPilot-AI)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## RankPilot AI — Search Intelligence Platform
+
+🚀 **Deployed:** [GitHub Pages](https://riazaslam029.github.io/RankPilot-AI/) | [Streamlit Dashboard](https://rankpilot-streamlit.streamlit.app/) | [Paper (PDF)](paper/paper.pdf)
 
 ## What It Does
 
