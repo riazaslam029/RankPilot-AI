@@ -49,7 +49,7 @@ fig = px.pie(
     hole=0.4,
 )
 fig.update_layout(showlegend=True, height=400)
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig, width='stretch')
 
 st.markdown("---")
 
@@ -62,7 +62,7 @@ filtered["Tier"] = filtered["Tier"].map({
 })
 filtered = filtered.sort_values("Priority Score", ascending=False)
 
-st.dataframe(filtered.head(50), use_container_width=True, height=500)
+st.dataframe(filtered.head(50), width='stretch', height=500)
 
 st.markdown("---")
 
@@ -73,7 +73,7 @@ fig2 = px.histogram(recs, x="priority_score", color="priority_tier", nbins=50,
                          "low": "lightgreen", "monitor": "lightgray"
                      })
 fig2.update_layout(height=400, xaxis_title="Priority Score", yaxis_title="Page Count")
-st.plotly_chart(fig2, use_container_width=True)
+st.plotly_chart(fig2, width='stretch')
 
 st.markdown("---")
 

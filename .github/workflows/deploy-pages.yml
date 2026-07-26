@@ -10,17 +10,19 @@ permissions:
   id-token: write
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Copy static files to site
+      - name: Setup Pages artifact
         run: |
+          rm -rf _site
           mkdir -p _site
           cp -r docs_src/* _site/
           cp -r assets/* _site/assets/ 2>/dev/null || true
-          cp paper/paper.md _site/paper.md
+          cp paper/paper.md _site/paper.md 2>/dev/null || true
+          echo "Site built at _site/"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -31,7 +33,7 @@ jobs:
           path: ./_site
 
   deploy:
-    needs: deploy
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages

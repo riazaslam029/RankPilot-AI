@@ -82,10 +82,6 @@ def compute_rolling_features(df: pd.DataFrame) -> pd.DataFrame:
 
 
 
-def compute_lag_features(df: pd.DataFrame) -> pd.DataFrame:
-    df = df.sort_values(["page", "date"]).reset_index(drop=True)
-    return df
-
 def compute_temporal_features(df: pd.DataFrame) -> pd.DataFrame:
     df["click_growth_rate"] = df.groupby("page")["clicks"].transform(
         lambda x: x.pct_change(7).fillna(0)

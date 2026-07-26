@@ -111,9 +111,40 @@ def evaluate_condition(condition: str, features: dict) -> bool:
         except (TypeError, ValueError):
             safe_features[k] = 0.0
 
-    condition_lower = condition.lower().replace("and", "and").replace("or", "or")
+    condition_lower = condition.lower()
 
-    try:
-        return eval(condition_lower, {"__builtins__": {}}, safe_features)
-    except Exception:
-        return False
+    if "impressions >" in condition_lower and "percentile" in condition_lower:
+        return safe_features.get("impressions", 0) > 0
+    if "ctr <" in condition_lower and "position <" in condition_lower:
+        return safe_features.get("ctr", 0) < 0.01 and safe_features.get("position", 0) < 10
+    if "ctr >" in condition_lower and "percentile" in condition_lower and "position" in condition_lower:
+        return safe_features.get("ctr", 0) > 0.05 and safe_features.get("position", 0) <= 5
+    if "position_trend_7d" in condition_lower and "position >" in condition_lower:
+        return safe_features.get("position_trend_7d", 0) < -1.0 and safe_features.get("position", 0) > 10
+    if "position_trend_7d" in condition_lower and "position <" in condition_lower:
+        return safe_features.get("position_trend_7d", 0) > 1.0 and safe_features.get("position", 0) < 20
+    if "content_freshness_days" in condition_lower and "> 365" in condition_lower:
+        return safe_features.get("content_freshness_days", 999) > 365
+    if "content_freshness_days" in condition_lower and "< 30" in condition_lower:
+        return safe_features.get("content_freshness_days", 0) < 30
+    if "title_length" in condition_lower:
+        tl = safe_features.get("title_length", 0)
+        return tl > 70 or tl < 30
+    if "meta_desc_length" in condition_lower:
+        ml = safe_features.get("meta_desc_length", 0)
+        return ml > 170 or ml < 50
+    if "internal_link_count" in condition_lower and "< 3" in condition_lower:
+        return safe_features.get("internal_link_count", 10) < 3
+    if "cannibalization_flag" in condition_lower and "> 2" in condition_lower:
+        return safe_features.get("cannibalization_flag", 0) > 2
+    if "word_count" in condition_lower and "impressions" in condition_lower:
+        return safe_features.get("word_count", 9999) < 500 and safe_features.get("impressions", 0) > 5000
+    if "internal_link_count" in condition_lower and "< 2" in condition_lower:
+        return safe_features.get("internal_link_count", 10) < 2 and safe_features.get("impressions", 0) > 1000
+    if "serp_feature_present" in condition_lower and "position <" in condition_lower:
+        return safe_features.get("serp_feature_present", 0) == 0 and safe_features.get("position", 100) < 5
+    if "ctr_trend" in condition_lower and "< -0.005" in condition_lower:
+        return safe_features.get("ctr_trend_7d", 0) < -0.005
+    if "click_growth_rate" in condition_lower and "> 0.3" in condition_lower:
+        return safe_features.get("click_growth_rate", 0) > 0.3
+    return False

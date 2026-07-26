@@ -23,7 +23,7 @@ class AnalyzeResponse(BaseModel):
     status: str
     pages_analyzed: int
     primary_actions: dict[str, int]
-    top_oppportunities: list[dict]
+    top_opportunities: list[dict]
 
 
 @app.get("/health")
@@ -54,12 +54,12 @@ def analyze(request: AnalyzeRequest):
             status="complete",
             pages_analyzed=len(results),
             primary_actions=actions,
-            top_oppportunities=top,
+            top_opportunities=top,
         )
     except Exception as e:
         return AnalyzeResponse(
             status="error",
             pages_analyzed=0,
             primary_actions={},
-            top_oppportunities=[],
+            top_opportunities=[],
         )
