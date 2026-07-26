@@ -72,7 +72,7 @@ src/
 - **SHAP-based explainability** — every prediction comes with human-readable reason codes
 - **Priority scoring** — combines model confidence, business impact, urgency, and action ease
 - **Time-based train/validation/test split** — prevents data leakage in temporal search data
-- **Dockerized** — one-command deployment with PostgreSQL, Redis, and MLflow
+- **Dockerized** — one-command deployment with PostgreSQL, Redis, & MLflow
 
 ## Research Paper
 
