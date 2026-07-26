@@ -8,7 +8,7 @@ An AI-powered Search Intelligence platform that analyzes search performance data
 
 ## RankPilot AI — Search Intelligence Platform
 
-🚀 **Deployed:** [GitHub Pages](https://riazaslam029.github.io/RankPilot-AI/) | [Streamlit Dashboard](https://rankpilot-streamlit.streamlit.app/) | 
+🚀 **Deployed:** [GitHub Pages](https://riazaslam029.github.io/RankPilot-AI/) | 
 
 ## What It Does
 
