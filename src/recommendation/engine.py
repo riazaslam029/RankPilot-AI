@@ -24,7 +24,7 @@ logger = get_logger(__name__)
 
 class RecommendationEngine:
     def __init__(self, model_path: str | None = None):
-        self.model_path = model_path or str(settings.models_dir / "xgboost_model.joblib")
+        self.model_path = model_path or str(settings.models_dir / "checkpoints" / "xgboost_model.joblib")
         self.models: dict = {}
         self.metrics: dict = {}
         self.feature_cols: list[str] = []
